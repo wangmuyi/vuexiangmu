@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-show="isTabbarShow">
     <top></top>
     <transition name="app" mode="out-in">
       <router-view></router-view>
@@ -10,14 +10,23 @@
 <script>
 import bottomSide from '@/components/BottomSide'
 import top from '@/components/Top'
-// import tabbar from "@/components/Tabbar";
+import { mapState, mapMutations } from 'vuex'
 export default {
   components: {
     // tabbar,
     bottomSide,
     top
   },
-  mounted () {}
+  methods: {
+    ...mapMutations(['show', 'hide'])
+  },
+  mounted () {
+    console.log(this.isTabbarShow)
+    this.show()
+  },
+  computed: {
+    ...mapState(['isTabbarShow'])
+  }
 }
 </script>
 <style lang="scss">

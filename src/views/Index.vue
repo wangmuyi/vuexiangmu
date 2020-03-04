@@ -1,8 +1,9 @@
 <template>
   <div>
-    <div class="banner" v-if="banners.length">
+    <div class="banner" @click="tobrand" v-if="banners.length">
       <img :src="data.main_image" alt="hhhhh" v-for="data in banners" :key="data.id" />
-      <!-- <span>jjj{{Name}}</span> -->
+      <span>{{banners[0].main_title}}</span>
+      <p>{{banners[0].sub_title}}</p>
     </div>
     <div class="every">
       <div v-for="(data,index) in every" :key="data.main_title">
@@ -48,13 +49,35 @@ export default {
         console.log(res.data.show2)
         this.every = res.data.show2
       })
+  },
+  methods: {
+    tobrand () {
+      this.$router.push('/brand')
+    }
   }
 }
 </script>
 <style lang="scss" scoped>
 .banner {
+      color: #ccc;
+    position: relative;
   img {
     width: 100%;
+  }
+  span{
+      position: absolute;
+      left:50%;
+      font-size: 26px;
+      font-weight: 800;
+      bottom:140px;
+      margin-left: -85px;
+  }
+  p{
+      position: absolute;
+      left:130px;
+      font-size: 18px;
+      font-weight: 800;
+      bottom: 100px;
   }
 }
 h3,h4,h6{

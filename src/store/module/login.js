@@ -3,7 +3,7 @@
 const module = {
   namespaced: true, // 命名空间
   state: {
-    cinemaList: []
+    // isTabbarShow:true
   },
   actions: {
 
