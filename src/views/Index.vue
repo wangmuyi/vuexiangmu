@@ -11,8 +11,7 @@
         <h6>{{data.sub_title}}</h6></div>
         <div>
         <img :src="data.products[index].picUrl" alt />
-        <h4>{{data.products[index].tag}}</h4></div>
-        <div>
+        <h4>{{data.products[index].tag}}</h4>
         <img :src="data.products[index?--index:++index].picUrl" alt />
         <h4>{{data.products[index?--index:++index].tag}}</h4></div>
       </div>
